@@ -1,4 +1,4 @@
-"use client ";
+"use client";
 
 import { Container, Grid, GridCol, SimpleGrid, Skeleton } from "@mantine/core";
 

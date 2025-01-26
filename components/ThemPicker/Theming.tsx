@@ -9,30 +9,15 @@ import { IconSun, IconMoon } from "@tabler/icons-react";
 import Image from "next/image";
 import cx from "clsx";
 import classes from "./Theming.module.css";
-import logoDef from "../../public/logo.png";
 import logoDark from "../../public/logo-d.png";
 import logoLight from "../../public/logo-l.png";
+import Link from "next/link";
 
 // ThemedLogo Component
 export function ThemedLogo() {
   const computedColorScheme = useComputedColorScheme("dark", {
     getInitialValueInEffect: true,
   });
-
-  // a placeholder
-  if (!computedColorScheme) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Image src={logoDef} alt="Themed Logo" height={40} priority />
-      </div>
-    );
-  }
 
   // Choose the logo based on the theme
   const logo = computedColorScheme === "dark" ? logoDark : logoLight;
@@ -45,12 +30,14 @@ export function ThemedLogo() {
         alignItems: "center",
       }}
     >
-      <Image
-        src={logo}
-        alt="Themed Logo"
-        height={40} // Adjust size as needed
-        priority // Optimized loading
-      />
+      <Link href="/" className={classes.link}>
+        <Image
+          src={logo}
+          alt="Themed Logo"
+          height={40} // Adjust size as needed
+          priority // Optimized loading
+        />
+      </Link>
     </div>
   );
 }

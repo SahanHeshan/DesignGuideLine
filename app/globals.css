@@ -20,7 +20,3 @@
   --mantine-primary-color-filled: #9333ea !important;
   --mantine-primary-color-filled-hover: #7c25cc !important;
 }
-
-:root {
-  box-shadow: var(--size-gap-double) var(--size-gap-quad) rgba(0, 0, 0, 0.25) !important;
-}

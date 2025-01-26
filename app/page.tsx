@@ -1,14 +1,31 @@
-import Image from "next/image";
+"use client";
 import classes from "./page.module.css";
+import {
+  Button,
+  Container,
+  Overlay,
+  Group,
+  Text,
+  Code,
+  Box,
+} from "@mantine/core";
 import { LeadGrid } from "@/components/GridLayouts/LeadGrid";
 import { Accordion_t1 } from "@/components/accordion/accordion";
-import { Button, Container, Overlay, Group, Text } from "@mantine/core";
+import { CardsCarousel } from "@/components/carousel/CardsCarousel";
+import { ActionsGrid } from "@/components/Badgecard/ActionsGrid";
+import { FeaturesCards } from "@/components/Features/FeaturesCards";
+import { useMouse } from "@mantine/hooks";
 
 export default function Home() {
+  const { ref, x, y } = useMouse();
   return (
     <>
-      <div className={classes.wrapper}>
+      <Box ref={ref} className={classes.wrapper}>
+        <Text ta="center">
+          Mouse coordinates <Code>{`{ x: ${x}, y: ${y} }`}</Code>
+        </Text>
         <Container size={700} className={classes.inner}>
+          <div className={classes.mouse} />
           <h1 className={classes.title}>
             Embrace the Power
             <br /> of{" "}
@@ -50,9 +67,24 @@ export default function Home() {
             </Button>
           </Group>
         </Container>
+      </Box>
+
+      <Container size={1200} p={50}>
+        <CardsCarousel />
+      </Container>
+
+      <Container size={1000} p={50}>
+        <ActionsGrid />
+      </Container>
+
+      <FeaturesCards />
+
+      <div className={classes.wrapper}>
+        <Container p={50}>
+          <LeadGrid />
+        </Container>
       </div>
 
-      <LeadGrid />
       <Accordion_t1 />
     </>
   );

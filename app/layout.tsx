@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
+import "./globals.css";
+import type { Metadata } from "next";
 
 import {
   ColorSchemeScript,
@@ -33,30 +33,21 @@ const theme = createTheme({
 
   fontFamily: "Inter, sans-serif",
 
-  shadows: {
-    md: "1px 1px 3px rgba(0, 0, 0, .25)",
-    xl: "5px 5px 3px rgba(0, 0, 0, .25)",
-  },
+  // shadows: {
+  //   md: "1px 1px 3px rgba(0, 0, 0, .25)",
+  //   xl: "5px 5px 3px rgba(0, 0, 0, .25)",
+  // },
 
-  headings: {
-    fontFamily: "Inter, sans-serif",
-    sizes: {
-      h1: { fontSize: rem(36) },
-    },
-  },
-});
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  // headings: {
+  //   fontFamily: "Inter, sans-serif",
+  //   sizes: {
+  //     h1: { fontSize: rem(36) },
+  //   },
+  //   },
 });
 
 export const metadata: Metadata = {
-  title: "FOSS UoK",
+  title: "FOSS Community - University of Kelaniya",
   description: "FOSS UoK Official Website",
 };
 
@@ -68,9 +59,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <ColorSchemeScript defaultColorScheme="dark" />
+        <ColorSchemeScript />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
         <MantineProvider theme={theme}>
           <HeaderMegaMenu />
           {children}
